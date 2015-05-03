@@ -14,7 +14,7 @@ module Jarvis
 
     def problem_present?
       @file.lines.any? do |line|
-        line[-1] == " "
+        line.chomp[-1] == " "
       end
     end
 
