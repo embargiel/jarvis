@@ -10,6 +10,10 @@ module Jarvis
       @path = path
     end
 
+    def filename
+      @path.split("/").last
+    end
+
     def lines
       ::File.readlines(@path)
     end
