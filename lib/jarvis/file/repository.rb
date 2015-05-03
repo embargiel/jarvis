@@ -16,13 +16,20 @@ module Jarvis
       end
 
       def drop
-        store_file.delete if store_file.exist?
-        @store = nil
+        store.transaction do
+          store['files'] = []
+        end
       end
 
       def count
         store.transaction do
           store['files'].count
+        end
+      end
+
+      def all
+        store.transaction do
+          store['files'].map{|h| Jarvis::File.create(h)}
         end
       end
 

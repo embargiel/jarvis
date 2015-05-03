@@ -1,8 +1,4 @@
-require "jarvis/file"
-require "jarvis/file/repository"
-require "jarvis/file/validator"
 require "ruby-progressbar"
-
 
 module Jarvis
   class Initializer
@@ -13,7 +9,7 @@ module Jarvis
       progress_bar = ProgressBar.create(total: files_count, title: "Indexing files")
 
       all_files.each do |path|
-        file = Jarvis::File.new(path)
+        file = Jarvis::File.create(path: path)
         validator = Jarvis::File::Validator.new(file)
         if validator.valid?
           file_repository.save(file)

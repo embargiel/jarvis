@@ -4,5 +4,11 @@ module Jarvis
     def init
       Initializer.new.call
     end
+
+    desc "scan", "looks for problems in scanned files"
+    def scan
+      Scanner.new.call
+    end
+
   end
 end
