@@ -1,5 +1,6 @@
 require "jarvis/checker/empty_file_checker"
 require "jarvis/checker/missing_newline_at_end_checker"
+require "jarvis/checker/trailing_whitespace_checker"
 
 require "ruby-progressbar"
 require 'pry'
@@ -11,7 +12,8 @@ module Jarvis
 
       checkers = [
         Jarvis::EmptyFileChecker.new,
-        Jarvis::MissingNewlineAtEndChecker.new
+        Jarvis::MissingNewlineAtEndChecker.new,
+        Jarvis::TrailingWhitespaceChecker.new
       ]
       reports  = []
 
