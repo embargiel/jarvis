@@ -18,7 +18,7 @@ module Jarvis
 
       def flush!
         store.transaction do
-          store['problems'] = temporary_array
+          store['problems'] += temporary_array
         end
         @temporary_array = []
       end

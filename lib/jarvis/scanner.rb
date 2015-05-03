@@ -1,3 +1,4 @@
+require "jarvis/checker/empty_file_checker"
 require "jarvis/checker/missing_newline_at_end_checker"
 
 require "ruby-progressbar"
@@ -8,18 +9,21 @@ module Jarvis
     def call
       problems_repository.drop
 
-      checkers = [Jarvis::MissingNewlineAtEndChecker.new]
+      checkers = [
+        Jarvis::EmptyFileChecker.new,
+        Jarvis::MissingNewlineAtEndChecker.new
+      ]
       reports  = []
 
       checkers.each do |problem_checker|
-        progress_bar = ProgressBar.create(total: file_repository.count, title: "Scanning files for #{problem_checker.description}")
+        progress_bar = ProgressBar.create(total: file_repository.count, title: "Scanning for #{problem_checker.description}")
         file_repository.all.each do |file|
           problem_checker.file = file
 
           if problem_checker.should_check?
             if problem_checker.problem_present?
-              problem_hash = problem_checker.problem_hash
               problem_checker.increment
+              problem_hash = problem_checker.problem_hash
               problems_repository.save(problem_hash)
             end
           end

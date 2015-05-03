@@ -1,5 +1,5 @@
 module Jarvis
-  class MissingNewlineAtEndChecker
+  class EmptyFileChecker
     def initialize
       @counter = 0
     end
@@ -9,20 +9,20 @@ module Jarvis
     end
 
     def should_check?
-      @file.lines.any?
+      true
     end
 
     def problem_present?
-      !@file.lines.last.include? "\n"
+      @file.lines.empty?
     end
 
     def name
-      :missing_newline_at_end
+      :empty_file
     end
 
     def description
       # scanning for...
-      "missing new lines at the end"
+      "empty files"
     end
 
     def increment
@@ -37,7 +37,7 @@ module Jarvis
     end
 
     def report
-      "#{@counter} files have missing newline at the end"
+      "#{@counter} files are empty"
     end
   end
 end
