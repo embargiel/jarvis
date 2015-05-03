@@ -7,5 +7,4 @@ module Jarvis
   def self.root
     Pathname.new(".")
   end
-  # Your code goes here...
 end

@@ -5,10 +5,14 @@ module Jarvis
   class File
     class Repository
       def save(file)
+        temporary_array << file.to_h
+      end
+
+      def flush!
         store.transaction do
-          store['files'] ||= []
-          store['files'] << file.to_h
+          store['files'] = temporary_array
         end
+        @temporary_array = []
       end
 
       def drop
@@ -16,7 +20,17 @@ module Jarvis
         @store = nil
       end
 
+      def count
+        store.transaction do
+          store['files'].count
+        end
+      end
+
       private
+
+      def temporary_array
+        @temporary_array ||= []
+      end
 
       def store
         @store ||= YAML::Store.new(store_file)

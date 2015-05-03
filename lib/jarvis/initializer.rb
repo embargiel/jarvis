@@ -1,20 +1,43 @@
 require "jarvis/file"
 require "jarvis/file/repository"
 require "jarvis/file/validator"
+require "ruby-progressbar"
+
 
 module Jarvis
   class Initializer
     def call
-      file_repository = Jarvis::File::Repository.new
       file_repository.drop
 
-      Dir["./**/*"].each do |path|
+      files_count = all_files.count
+      progress_bar = ProgressBar.create(total: files_count, title: "Indexing files")
+
+      all_files.each do |path|
         file = Jarvis::File.new(path)
         validator = Jarvis::File::Validator.new(file)
         if validator.valid?
           file_repository.save(file)
         end
+        progress_bar.increment
       end
+
+      file_repository.flush!
+      report!
+    end
+
+    def report!
+      puts "#{file_repository.count} files successfully indexed"
+    end
+
+
+    private
+
+    def file_repository
+      @file_repository ||= Jarvis::File::Repository.new
+    end
+
+    def all_files
+      @all_files ||= Dir["./**/*"]
     end
   end
 end
