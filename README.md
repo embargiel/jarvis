@@ -29,22 +29,29 @@ goes through all problem checkers and files, and saves an information about each
 
 returns count of all found problems and tells you how you can ask him to fix it
 
+    jarvis checkers
+
+lists all available checkers
+
     jarvis fixall NAME
 
 fixes all found instances of found problems. Currently supported are:
 
-jarvis fixall empty_file
-  -> removes the file
+    jarvis fixall empty_file
 
-jarvis fixall missing_newline_at_end
-  -> appends newline at the end of file
+removes the file
 
-jarvis fixall trailing whitespace
-  -> removes the trailing whitespace
+    jarvis fixall missing_newline_at_end
 
-jarvis fixall empty_helper_file
-  -> removes the file
+appends newline at the end of file
 
+    jarvis fixall trailing whitespace
+
+removes the trailing whitespace
+
+    jarvis fixall empty_helper_file
+
+removes the file
 
 ## Contributing
 
