@@ -3,12 +3,16 @@ module Jarvis
     def call
       problems = problems_repository.all.find_all{|problem| problem.checker == :empty_file }
       problems.each do |pr|
-        pr.file.delete
+        solve(pr)
       end
 
       problems_repository.delete_if { |problem| problem.checker == :empty_file }
 
       puts "Removed #{problems.count} empty files"
+    end
+
+    def solve(problem)
+      problem.file.delete
     end
 
     private

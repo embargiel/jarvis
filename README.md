@@ -33,6 +33,10 @@ returns count of all found problems and tells you how you can ask him to fix it
 
 lists all available checkers
 
+    jarvis seek_and_destroy NAME
+
+looks through all valid files and fixes them according to passed checker NAME. No storage files created.
+
     jarvis fixall NAME
 
 fixes all found instances of found problems. Currently supported are:

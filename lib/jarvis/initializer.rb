@@ -4,16 +4,12 @@ module Jarvis
   class Initializer
     def call
       file_repository.drop
+      file_iterator = File::Iterator.new
 
-      files_count = all_files.count
-      progress_bar = ProgressBar.create(total: files_count, title: "Indexing files")
+      progress_bar = ProgressBar.create(total: file_iterator.count, title: "Indexing files")
 
-      all_files.each do |path|
-        file = Jarvis::File.create(path: path)
-        validator = Jarvis::File::Validator.new(file)
-        if validator.valid?
-          file_repository.save(file)
-        end
+      file_iterator.each_valid_file do |file|
+        file_repository.save(file)
         progress_bar.increment
       end
 

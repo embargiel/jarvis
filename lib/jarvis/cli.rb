@@ -26,5 +26,10 @@ module Jarvis
         puts checker.name
       end
     end
+
+    desc "seek_and_destroy", "finds all instances violating given checker and fixes them"
+    def seek_and_destroy(checker_name)
+      SeekAndDestroy.new(checker_name).call
+    end
   end
 end

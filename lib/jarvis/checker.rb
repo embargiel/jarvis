@@ -1,5 +1,9 @@
 module Jarvis
   class Checker
+    def self.find(name)
+      all.find{|checker| checker.name == name.to_sym }
+    end
+
     def self.all
       [
         Jarvis::EmptyFileChecker.new,

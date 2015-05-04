@@ -3,24 +3,22 @@ module Jarvis
     def call
       problems = problems_repository.all.find_all{|problem| problem.checker == :trailing_whitespace }
       problems.each do |pr|
-        new_version = pr.file.lines.map do |line|
-          "#{line.rstrip}\n" rescue binding.pry
-        end.join("")
-
-        pr.file.open("w") do |f|
-          f.puts new_version
-        end
-        #   new_file = f.each_line.map do |line|
-        #   end
-
-        #   binding.pry
-        #   # f.
-        # end
+        solve(pr)
       end
 
       problems_repository.delete_if { |problem| problem.checker == :trailing_whitespace }
 
       puts "Cleaned up trailing whitespace in #{problems.count} files"
+    end
+
+    def solve(problem)
+      new_version = problem.file.lines.map do |line|
+        "#{line.rstrip}\n"
+      end.join("")
+
+      problem.file.open("w") do |f|
+        f.puts new_version
+      end
     end
 
     private
