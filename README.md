@@ -1,26 +1,50 @@
 # Jarvis
 
-TODO: Write a gem description
+Jarvis helps you find out problems with your code and offers to fix them for you.
+It currently does a couple of simple checks and fixes, but I'd like it to do everything, from dead code elimination and suboptimal code fixing to enforcing html/css code styling or looking for n+1 queries.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'jarvis'
+gem 'jarvis', git: 'git@github.com:KillaPL/jarvis.git'
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install jarvis
-
 ## Usage
 
-TODO: Write usage instructions here
+    jarvis init
+
+indexes files in your system. This list is then used for problems scanning.
+
+    jarvis scan
+
+goes through all problem checkers and files, and saves an information about each problem it finds.
+
+    jarvis status
+
+returns count of all found problems and tells you how you can ask him to fix it
+
+    jarvis fixall NAME
+
+fixes all found instances of found problems. Currently supported are:
+
+jarvis fixall empty_file
+  -> removes the file
+
+jarvis fixall missing_newline_at_end
+  -> appends newline at the end of file
+
+jarvis fixall trailing whitespace
+  -> removes the trailing whitespace
+
+jarvis fixall empty_helper_file
+  -> removes the file
+
 
 ## Contributing
 

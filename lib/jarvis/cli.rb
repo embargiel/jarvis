@@ -19,5 +19,12 @@ module Jarvis
     def fixall(checker_name)
       Fixer.find(checker_name).call
     end
+
+    desc "checkers", "writes list of all available checkers"
+    def checkers
+      Checker.all.each do |checker|
+        puts checker.name
+      end
+    end
   end
 end

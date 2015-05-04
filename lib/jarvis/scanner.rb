@@ -10,15 +10,9 @@ module Jarvis
     def call
       problems_repository.drop
 
-      checkers = [
-        Jarvis::EmptyFileChecker.new,
-        Jarvis::MissingNewlineAtEndChecker.new,
-        Jarvis::TrailingWhitespaceChecker.new,
-        Jarvis::EmptyHelperFileChecker.new
-      ]
       reports  = []
 
-      checkers.each do |problem_checker|
+      Checker.all.each do |problem_checker|
         progress_bar = ProgressBar.create(total: file_repository.count, title: "Scanning for #{problem_checker.description}")
         file_repository.all.each do |file|
           problem_checker.file = file
