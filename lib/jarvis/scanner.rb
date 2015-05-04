@@ -4,7 +4,6 @@ require "jarvis/checker/trailing_whitespace_checker"
 require "jarvis/checker/empty_helper_files_checker"
 
 require "ruby-progressbar"
-require 'pry'
 
 module Jarvis
   class Scanner
