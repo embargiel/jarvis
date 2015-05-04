@@ -10,5 +10,9 @@ module Jarvis
       @checker   = checker
       @file_path = file_path
     end
+
+    def file
+      Jarvis::File.new(@file_path)
+    end
   end
 end

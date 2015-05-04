@@ -18,6 +18,16 @@ module Jarvis
       ::File.readlines(@path)
     end
 
+    def delete
+      Pathname.new(@path).delete
+    end
+
+    def open(attrs)
+      Pathname.new(@path).open(attrs) do |f|
+        yield(f)
+      end
+    end
+
     def to_h
       {
         path: @path

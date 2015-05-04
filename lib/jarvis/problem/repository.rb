@@ -29,6 +29,12 @@ module Jarvis
         end
       end
 
+      def delete_if
+        store.transaction do
+          store['problems'].delete_if{|h| yield(Jarvis::Problem.create(h))}
+        end
+      end
+
       private
 
       def temporary_array

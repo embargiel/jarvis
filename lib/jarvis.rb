@@ -8,7 +8,9 @@ require "jarvis/scanner"
 require "jarvis/problem"
 require "jarvis/problem/repository"
 require "jarvis/reporter"
-
+require "jarvis/fixer"
+require "jarvis/fixer/empty_file_fixer"
+require "jarvis/fixer/missing_newline_at_end_fixer"
 require "pathname"
 
 module Jarvis

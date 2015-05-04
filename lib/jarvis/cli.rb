@@ -14,5 +14,10 @@ module Jarvis
     def status
       Reporter.new.call
     end
+
+    desc "fixall", "fixes problems with for passed checker name"
+    def fixall(checker_name)
+      Fixer.find(checker_name).call
+    end
   end
 end
