@@ -5,6 +5,8 @@ module Jarvis
       puts "Problems count found by jarvis:"
       counter_hash.each do |checker_name, problems_array|
         puts "#{checker_name}: #{problems_array.count}"
+        puts "-> jarvis fixall #{checker_name}"
+        puts ""
       end
     end
 
