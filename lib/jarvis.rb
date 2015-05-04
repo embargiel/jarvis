@@ -11,6 +11,8 @@ require "jarvis/reporter"
 require "jarvis/fixer"
 require "jarvis/fixer/empty_file_fixer"
 require "jarvis/fixer/missing_newline_at_end_fixer"
+require "jarvis/fixer/empty_helper_file_fixer"
+
 require "pathname"
 
 module Jarvis

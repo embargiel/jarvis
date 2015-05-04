@@ -36,9 +36,9 @@ module Jarvis
         end
 
         reports << problem_checker.report
-
-        problems_repository.flush!
       end
+
+      problems_repository.flush!
 
       reports.each do |report|
         puts report
