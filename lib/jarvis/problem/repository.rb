@@ -23,6 +23,12 @@ module Jarvis
         @temporary_array = []
       end
 
+      def all
+        store.transaction do
+          store['problems'].map{|h| Jarvis::Problem.create(h)}
+        end
+      end
+
       private
 
       def temporary_array

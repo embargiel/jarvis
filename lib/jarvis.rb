@@ -7,6 +7,7 @@ require "jarvis/file/validator"
 require "jarvis/scanner"
 require "jarvis/problem"
 require "jarvis/problem/repository"
+require "jarvis/reporter"
 
 require "pathname"
 

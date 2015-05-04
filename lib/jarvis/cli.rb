@@ -10,5 +10,9 @@ module Jarvis
       Scanner.new.call
     end
 
+    desc "status", "presents status of found problems"
+    def status
+      Reporter.new.call
+    end
   end
 end
