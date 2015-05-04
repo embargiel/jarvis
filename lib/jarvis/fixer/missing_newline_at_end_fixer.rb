@@ -4,7 +4,6 @@ module Jarvis
       problems = problems_repository.all.find_all{|problem| problem.checker == :missing_newline_at_end }
       problems.each do |pr|
         pr.file.open("a") do |f|
-          # binding.pry
           f << "\n"
         end
       end
