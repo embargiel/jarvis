@@ -2,8 +2,8 @@ module Jarvis
   class CLI < Thor
     desc "checkers", "writes list of all available checkers"
     def checkers
-      Checker.all.each do |checker|
-        puts checker.name
+      Checker.all_strategies.each do |strategy_name|
+        puts strategy_name
       end
     end
 

@@ -1,15 +1,17 @@
 module Jarvis
-  class EmptyFileChecker < Checker::Base
-    def should_check?
-      true
-    end
+  class Checker
+    class EmptyFile
+      def should_check?
+        true
+      end
 
-    def problem_present?
-      @file.lines.empty?
-    end
+      def problem_present?
+        @file.lines.empty?
+      end
 
-    def solve
-      @file.delete
+      def solve
+        @file.delete
+      end
     end
   end
 end

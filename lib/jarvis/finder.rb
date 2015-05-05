@@ -5,7 +5,7 @@ module Jarvis
     end
 
     def call
-      checker = Checker.find(@checker_name)
+      checker = Checker.new(@checker_name)
       paths = []
 
       if checker

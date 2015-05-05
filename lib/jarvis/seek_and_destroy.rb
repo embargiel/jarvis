@@ -1,14 +1,13 @@
 module Jarvis
   class SeekAndDestroy
     def initialize(checker_name)
-      @checker_name = checker_name.to_sym
+      @checker_name = checker_name
     end
 
     def call
-      checker = Checker.find(@checker_name)
-      fixer   = Fixer.find(@checker_name)
+      checker = Checker.new(@checker_name)
 
-      if checker and fixer
+      if checker
         file_iterator = File::Iterator.new
         progress_bar = ProgressBar.create(total: file_iterator.count, title: "Seeking and destroying #{@checker_name}")
         file_iterator.each_valid_file do |file|
