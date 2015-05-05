@@ -1,30 +1,10 @@
-require "jarvis/version"
-require "jarvis/cli"
-require "jarvis/initializer"
-require "jarvis/file"
-require "jarvis/file/repository"
-require "jarvis/file/validator"
-require "jarvis/file/iterator"
-require "jarvis/scanner"
-require "jarvis/problem"
-require "jarvis/problem/repository"
-require "jarvis/reporter"
-require "jarvis/fixer"
-require "jarvis/fixer/empty_file_fixer"
-require "jarvis/fixer/missing_newline_at_end_fixer"
-require "jarvis/fixer/empty_helper_file_fixer"
-require "jarvis/fixer/trailing_whitespace_fixer"
-require "jarvis/fixer/unnecessary_erb_fixer"
-require "jarvis/checker"
-require "jarvis/checker/empty_file_checker"
-require "jarvis/checker/missing_newline_at_end_checker"
-require "jarvis/checker/trailing_whitespace_checker"
-require "jarvis/checker/empty_helper_files_checker"
-require "jarvis/checker/unnecessary_erb_checker"
-require "jarvis/seek_and_destroy"
-require "jarvis/finder"
-
+require 'require_all'
 require "pathname"
+require "ruby-progressbar"
+require "fileutils"
+require "yaml/store"
+
+require_rel ""
 
 module Jarvis
   def self.root

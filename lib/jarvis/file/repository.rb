@@ -1,6 +1,3 @@
-require "yaml/store"
-require "pathname"
-
 module Jarvis
   class File
     class Repository

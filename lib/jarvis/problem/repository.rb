@@ -3,11 +3,6 @@ module Jarvis
     class Repository
       def save(problem_report)
         temporary_array << problem_report
-
-        # store.transaction do
-        #   store['problems'] ||= []
-        #   store['problems'] << problem_report
-        # end
       end
 
       def drop

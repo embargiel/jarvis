@@ -1,6 +1,3 @@
-require "pathname"
-require "jarvis/config"
-
 module Jarvis
   class File
     class Validator

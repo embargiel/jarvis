@@ -1,5 +1,3 @@
-require "ruby-progressbar"
-
 module Jarvis
   class Scanner
     def call

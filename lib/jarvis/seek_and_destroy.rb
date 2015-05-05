@@ -24,10 +24,6 @@ module Jarvis
       else
         puts "Jarvis can't help you with #{@checker_name}"
       end
-
-      # File::Iterator.new.each_valid_file do |file|
-
-      # end
     end
   end
 end

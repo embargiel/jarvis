@@ -1,5 +1,3 @@
-require "ruby-progressbar"
-
 module Jarvis
   class Initializer
     def call
@@ -20,7 +18,6 @@ module Jarvis
     def report!
       puts "#{file_repository.count} files successfully indexed"
     end
-
 
     private
 

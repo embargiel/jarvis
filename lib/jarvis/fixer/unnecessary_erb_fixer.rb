@@ -1,5 +1,3 @@
-require "fileutils"
-
 module Jarvis
   class UnnecessaryErbFixer
     def call
@@ -17,10 +15,6 @@ module Jarvis
       old_path = problem.file.path
       new_path = problem.file.path.gsub(".erb", "")
       FileUtils.mv old_path, new_path
-      # puts problem
-      # problem.file.open("a") do |f|
-      #   f << "\n"
-      # end
     end
 
     private
