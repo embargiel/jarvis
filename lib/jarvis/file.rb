@@ -18,6 +18,10 @@ module Jarvis
       ::File.readlines(@path)
     end
 
+    def nonempty?
+      !::File.zero? @path
+    end
+
     def read
       Pathname.new(@path).read
     end

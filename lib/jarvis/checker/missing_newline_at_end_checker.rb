@@ -9,7 +9,7 @@ module Jarvis
     end
 
     def should_check?
-      @file.lines.any?
+      @file.nonempty?
     end
 
     def problem_present?
