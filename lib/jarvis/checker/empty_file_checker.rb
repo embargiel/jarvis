@@ -8,10 +8,6 @@ module Jarvis
       @file.lines.empty?
     end
 
-    def name
-      :empty_file
-    end
-
     def description
       # scanning for...
       "empty files"

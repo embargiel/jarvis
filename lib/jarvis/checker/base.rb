@@ -9,6 +9,10 @@ module Jarvis
         @file = file
       end
 
+      def name
+        self.class.name.split("::").last.sub("Checker", "").underscore.to_sym
+      end
+
       def increment
         @counter += 1
       end
