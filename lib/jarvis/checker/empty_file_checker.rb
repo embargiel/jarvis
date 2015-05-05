@@ -1,13 +1,5 @@
 module Jarvis
-  class EmptyFileChecker
-    def initialize
-      @counter = 0
-    end
-
-    def file=(file)
-      @file = file
-    end
-
+  class EmptyFileChecker < Checker::Base
     def should_check?
       true
     end
@@ -23,17 +15,6 @@ module Jarvis
     def description
       # scanning for...
       "empty files"
-    end
-
-    def increment
-      @counter += 1
-    end
-
-    def problem_hash
-      {
-        file_path: @file.path,
-        checker: name
-      }
     end
 
     def report

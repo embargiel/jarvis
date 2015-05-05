@@ -1,13 +1,5 @@
 module Jarvis
-  class MissingNewlineAtEndChecker
-    def initialize
-      @counter = 0
-    end
-
-    def file=(file)
-      @file = file
-    end
-
+  class MissingNewlineAtEndChecker < Checker::Base
     def should_check?
       @file.nonempty?
     end

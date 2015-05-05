@@ -1,13 +1,5 @@
 module Jarvis
-  class EmptyHelperFileChecker
-    def initialize
-      @counter = 0
-    end
-
-    def file=(file)
-      @file = file
-    end
-
+  class EmptyHelperFileChecker < Checker::Base
     def should_check?
       @file.path.include? "_helper.rb"
     end
@@ -29,17 +21,6 @@ module Jarvis
     def description
       # scanning for...
       "empty helper files"
-    end
-
-    def increment
-      @counter += 1
-    end
-
-    def problem_hash
-      {
-        file_path: @file.path,
-        checker: name
-      }
     end
 
     def report
