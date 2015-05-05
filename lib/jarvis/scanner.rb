@@ -21,7 +21,7 @@ module Jarvis
           progress_bar.increment
         end
 
-        reports << problem_checker.report
+        reports << "#{problem_checker.counter} instances of #{problem_checker.name} found"
       end
 
       problems_repository.flush!

@@ -7,9 +7,5 @@ module Jarvis
     def problem_present?
       !(@file.read.include? "<%")
     end
-
-    def report
-      "#{@counter} files have unnecessary erb extension"
-    end
   end
 end

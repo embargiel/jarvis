@@ -9,9 +9,5 @@ module Jarvis
         line.chomp[-1] == " "
       end
     end
-
-    def report
-      "#{@counter} files have trailing whitespace"
-    end
   end
 end

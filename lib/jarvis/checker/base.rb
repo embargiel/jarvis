@@ -17,6 +17,10 @@ module Jarvis
         @counter += 1
       end
 
+      def counter
+        @counter
+      end
+
       def problem_hash
         {
           file_path: @file.path,
