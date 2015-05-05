@@ -29,7 +29,16 @@ looks through all valid files and looks for problems according to passed checker
 
 looks through all valid files and fixes them according to passed checker NAME.
 
-removes the file
+## Adding strategies:
+
+  Simply add a file to jarvis/checker lib. It should be a class namespaced with Jarvis::Checker.
+  Inside the strategy file you have access to @file variable, which is instance of Jarvis::File, which is a wrapper over actual file.
+  Your strastegy must respond to 3 methods:
+    - #should_check? Should return true/false. Typically, if it returns true, problem_present? will be called. For example, if strategy only is valid for ruby files, it should check if @file.path contains '.rb' substring. Also, usually it might need to check if the file is nonempty.
+
+    - #problem_present? Should open the file and actually check if it violates the strategies purpose. For example, Jarvis::Checker::TrailingWhitespace looks line by line to determine if the file contains any trailing whitespace.
+
+    - #solve. Should solve the issue, assuming it is found. For example, Jarvis::Checker::TrailingWhitespace goes line by line and removes the trailing whitespace
 
 ## Contributing
 
