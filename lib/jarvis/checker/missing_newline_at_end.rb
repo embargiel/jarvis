@@ -6,7 +6,7 @@ module Jarvis
       end
 
       def problem_present?
-        !@file.lines.last.include? "\n"
+        !@file.read.ends_with? "\n"
       end
 
       def solve

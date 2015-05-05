@@ -6,7 +6,7 @@ module Jarvis
       end
 
       def problem_present?
-        @file.lines.empty?
+        @file.empty?
       end
 
       def solve

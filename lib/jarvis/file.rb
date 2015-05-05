@@ -19,7 +19,11 @@ module Jarvis
     end
 
     def nonempty?
-      !::File.zero? @path
+      !empty?
+    end
+
+    def empty?
+      ::File.zero? @path
     end
 
     def read

@@ -6,9 +6,7 @@ module Jarvis
       end
 
       def problem_present?
-        @file.lines.any? do |line|
-          line.chomp[-1] == " "
-        end
+        @file.read.include? " \n"
       end
 
       def solve
