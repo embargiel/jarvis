@@ -10,11 +10,6 @@ module Jarvis
       end
     end
 
-    def description
-      # scanning for...
-      "files with trailing whitespace"
-    end
-
     def report
       "#{@counter} files have trailing whitespace"
     end

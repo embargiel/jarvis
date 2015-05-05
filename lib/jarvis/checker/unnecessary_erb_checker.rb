@@ -8,11 +8,6 @@ module Jarvis
       !(@file.read.include? "<%")
     end
 
-    def description
-      # scanning for...
-      "files unnecessary erb extension"
-    end
-
     def report
       "#{@counter} files have unnecessary erb extension"
     end

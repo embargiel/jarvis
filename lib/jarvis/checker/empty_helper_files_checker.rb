@@ -14,11 +14,6 @@ module Jarvis
       lines.first == "module #{helper_name}Helper\n" and lines.last == "end\n"
     end
 
-    def description
-      # scanning for...
-      "empty helper files"
-    end
-
     def report
       "#{@counter} empty helper files found"
     end

@@ -6,7 +6,7 @@ module Jarvis
       reports  = []
 
       Checker.all.each do |problem_checker|
-        progress_bar = ProgressBar.create(total: file_repository.count, title: "Scanning for #{problem_checker.description}")
+        progress_bar = ProgressBar.create(total: file_repository.count, title: "Scanning for #{problem_checker.name}")
         file_repository.all.each do |file|
           problem_checker.file = file
 

@@ -8,11 +8,6 @@ module Jarvis
       @file.lines.empty?
     end
 
-    def description
-      # scanning for...
-      "empty files"
-    end
-
     def report
       "#{@counter} files are empty"
     end
