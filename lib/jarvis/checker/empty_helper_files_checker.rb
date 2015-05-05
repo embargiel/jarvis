@@ -13,5 +13,9 @@ module Jarvis
 
       lines.first == "module #{helper_name}Helper\n" and lines.last == "end\n"
     end
+
+    def solve
+      @file.delete
+    end
   end
 end

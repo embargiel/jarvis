@@ -7,5 +7,11 @@ module Jarvis
     def problem_present?
       !@file.lines.last.include? "\n"
     end
+
+    def solve
+      @file.open("a") do |f|
+        f << "\n"
+      end
+    end
   end
 end

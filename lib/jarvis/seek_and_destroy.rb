@@ -14,9 +14,7 @@ module Jarvis
         file_iterator.each_valid_file do |file|
           checker.file = file
           if checker.should_check? and checker.problem_present?
-            problem_hash = checker.problem_hash
-            problem = Problem.create(problem_hash)
-            fixer.solve(problem)
+            checker.solve
           end
 
           progress_bar.increment

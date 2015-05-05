@@ -7,5 +7,11 @@ module Jarvis
     def problem_present?
       !(@file.read.include? "<%")
     end
+
+    def solve
+      old_path = @file.path
+      new_path = @file.path.gsub(".erb", "")
+      FileUtils.mv old_path, new_path
+    end
   end
 end
