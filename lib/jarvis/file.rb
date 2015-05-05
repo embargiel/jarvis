@@ -18,6 +18,10 @@ module Jarvis
       ::File.readlines(@path)
     end
 
+    def read
+      Pathname.new(@path).read
+    end
+
     def delete
       Pathname.new(@path).delete
     end

@@ -9,7 +9,8 @@ module Jarvis
         Jarvis::EmptyFileChecker.new,
         Jarvis::MissingNewlineAtEndChecker.new,
         Jarvis::TrailingWhitespaceChecker.new,
-        Jarvis::EmptyHelperFileChecker.new
+        Jarvis::EmptyHelperFileChecker.new,
+        Jarvis::UnnecessaryErbChecker.new
       ]
     end
   end

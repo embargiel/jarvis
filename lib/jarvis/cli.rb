@@ -31,5 +31,10 @@ module Jarvis
     def seek_and_destroy(checker_name)
       SeekAndDestroy.new(checker_name).call
     end
+
+    desc "find", "finds all instances violating given checker and lists them"
+    def find(checker_name)
+      Finder.new(checker_name).call
+    end
   end
 end

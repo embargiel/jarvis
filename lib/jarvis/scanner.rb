@@ -1,8 +1,3 @@
-require "jarvis/checker/empty_file_checker"
-require "jarvis/checker/missing_newline_at_end_checker"
-require "jarvis/checker/trailing_whitespace_checker"
-require "jarvis/checker/empty_helper_files_checker"
-
 require "ruby-progressbar"
 
 module Jarvis
