@@ -17,43 +17,17 @@ And then execute:
 
 ## Usage
 
-    jarvis init
-
-indexes files in your system. This list is then used for problems scanning.
-
-    jarvis scan
-
-goes through all problem checkers and files, and saves an information about each problem it finds.
-
-    jarvis status
-
-returns count of all found problems and tells you how you can ask him to fix it
-
     jarvis checkers
 
 lists all available checkers
 
+    jarvis find NAME
+
+looks through all valid files and looks for problems according to passed checker
+
     jarvis seek_and_destroy NAME
 
-looks through all valid files and fixes them according to passed checker NAME. No storage files created.
-
-    jarvis fixall NAME
-
-fixes all found instances of found problems. Currently supported are:
-
-    jarvis fixall empty_file
-
-removes the file
-
-    jarvis fixall missing_newline_at_end
-
-appends newline at the end of file
-
-    jarvis fixall trailing whitespace
-
-removes the trailing whitespace
-
-    jarvis fixall empty_helper_file
+looks through all valid files and fixes them according to passed checker NAME.
 
 removes the file
 
